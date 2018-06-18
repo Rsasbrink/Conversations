@@ -53,6 +53,9 @@ dependencies {
     implementation 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
     implementation 'rocks.xmpp:xmpp-addr:0.8.0-SNAPSHOT'
     implementation 'org.osmdroid:osmdroid-android:6.0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 }
 
 ext {
@@ -72,6 +75,7 @@ android {
         applicationId "eu.siacs.conversations"
         resValue "string", "applicationId", applicationId
         resValue "string", "app_name", "Conversations"
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
     dataBinding {
